@@ -20,7 +20,7 @@
 		<key>sblock</key>
 		<dict>
 			<key>begin</key>
-			<string>\{\{[#/]?</string>
+			<string>\{\{</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -159,16 +159,33 @@
 		</dict>
 		<key>sscript</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
+			<key>patterns</key>
+			<array>
 				<dict>
-					<key>name</key>
-					<string>storage.type.paperclip</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.paperclip</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>[\#\/](\w+):?</string>
 				</dict>
-			</dict>
-			<key>match</key>
-			<string>(\w+):</string>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.paperclip</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(\w+):</string>
+				</dict>
+			</array>
 		</dict>
 		<key>sstring</key>
 		<dict>

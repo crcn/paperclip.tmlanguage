@@ -103,12 +103,24 @@
     },
 
     "sscript": {
-      "match": "(\\w+):",
-      "captures": {
-        "1": {
-          "name": "storage.type.paperclip"
+      "patterns": [
+        {
+          "match": "[\\#\\/](\\w+):?",
+          "captures": {
+            "1": {
+              "name": "storage.type.paperclip"
+            }
+          }
+        },
+        {
+          "match": "(\\w+):",
+          "captures": {
+            "1": {
+              "name": "storage.type.paperclip"
+            }
+          }
         }
-      }
+      ]
     },
 
     "xcomment": {
@@ -147,7 +159,7 @@
     },
 
     "sblock": {
-      "begin": "\\{\\{[#/]?",
+      "begin": "\\{\\{",
       "end": "\\}\\}",
       "beginCaptures": {
         "0": {
