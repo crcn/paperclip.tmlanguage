@@ -5,3 +5,5 @@
 ### Installation
 
 Copy `paperclip.tmLanguage` to `~/Library/Application Support/Sublime Text 3/Packages/Paperclip` directory and restart Sublime Text 3.
+
+
