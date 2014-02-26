@@ -102,16 +102,36 @@
       "name": "entity.other.attribute-name.paperclip"
     },
 
-    "xcomment": {
-      "match": "<!--.*?-->",
-      "name": "comment.block.paperclip"
-    },
-
     "sscript": {
       "match": "(\\w+):",
       "captures": {
         "1": {
           "name": "storage.type.paperclip"
+        }
+      }
+    },
+
+    "xcomment": {
+      "begin": "<!--",
+      "end": "-->",
+      "beginCaptures": {
+        "0": {
+          "name": "comment.block.paperclip"
+        }
+      },
+      "patterns": [
+        {
+          "match": "[^-]+",
+          "name": "comment.block.paperclip"
+        },
+        {
+          "match": "\\b-\\b",
+          "name": "comment.block.paperclip"
+        }
+      ],
+      "endCaptures": {
+        "0": {
+          "name": "comment.block.paperclip"
         }
       }
     },
