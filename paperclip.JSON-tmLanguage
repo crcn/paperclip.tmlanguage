@@ -1,0 +1,245 @@
+{
+  "name": "paperclip",
+  "scopeName": "source.paperclip",
+  "fileTypes": [
+    "pc"
+  ],
+  "repository": {
+
+    "xexpressions": {
+      "patterns": [
+        {
+          "include": "#xcomment"
+        },
+        {
+          "include": "#xopentag"
+        },
+        {
+          "include": "#xclosetag"
+        },
+        {
+          "include": "#sblock"
+        }
+      ]
+    },
+
+    "xattrexpressions": {
+      "patterns": [
+        {
+          "include": "#xattrdatabind"
+        }
+      ]
+    },
+
+    "xopentag": {
+      "begin": "(<)(\\w+)\\s*",
+      "end": "(>)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.paperclip"
+        },
+        "2": {
+          "name": "entity.name.tag.paperclip"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#xattribute"
+        },
+        {
+          "include": "#xattributeNoValue"
+        }
+      ],
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.end.paperclip"
+        }
+      }
+    },
+
+    "xclosetag": {
+      "match": "</(\\w+)>",
+      "captures": {
+        "1": {
+          "name": "entity.name.tag.paperclip"
+        }
+      }
+    },
+
+    "xattribute": {
+      "begin": "\\s*([_\\-\\w]+)\\=(\")",
+      "end": "\"",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.other.attribute-name.paperclip"
+        },
+        "2": {
+          "name": "string.quoted.single.begin.paperclip"
+        }
+      },
+      "patterns": [
+        {
+          "match": "[^\"{]+",
+          "name": "string.quoted.single.paperclip"
+        },
+        {
+          "include": "#sblock"
+        },
+        {
+          "match": "\\{",
+          "name": "string.quoted.single.paperclip"
+        }
+      ],
+      "endCaptures": {
+        "0": {
+          "name": "string.quoted.single.end.paperclip"
+        }
+      }
+    },
+
+    "xattributeNoValue": {
+      "match": "\\s*([_\\-\\w]+)",
+      "name": "entity.other.attribute-name.paperclip"
+    },
+
+    "xcomment": {
+      "match": "<!--.*?-->",
+      "name": "comment.block.paperclip"
+    },
+
+    "sscript": {
+      "match": "(\\w+):",
+      "captures": {
+        "1": {
+          "name": "storage.type.paperclip"
+        }
+      }
+    },
+
+    "sobject": {
+      "begin": "\\{",
+      "end": "\\}",
+      "patterns": [
+        {
+          "include": "#sexpressions"
+        }
+      ]
+    },
+
+    "sblock": {
+      "begin": "\\{\\{[#/]?",
+      "end": "\\}\\}",
+      "beginCaptures": {
+        "0": {
+          "name": "entity.name.tagOpen.paperclip"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "entity.name.tagOpen.paperclip"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#sscript"
+        },
+        {
+          "include": "#sexpressions"
+        }
+      ]
+    },
+
+
+    // script
+    "sexpressions": {
+      "patterns": [
+        {
+          "include": "#snumber"
+        },
+        {
+          "include": "#sstring"
+        },
+        {
+          "include": "#sreserved"
+        },
+        {
+          "include": "#sreference"
+        },
+        {
+          "include": "#smodifier"
+        },
+        {
+          "include": "#soperator"
+        },
+        {
+          "include": "#sobject"
+        }
+      ]
+    },
+    "soperator": {
+      "match": "[-+|=*%]",
+      "name": "keyword.operator.paperclip"
+    },
+    "sstring": {
+      "end": "['\"]+",
+      "begin": "['\"]+",
+      "beginCaptures": {
+          "0": {
+              "name": "string.quoted.single.paperclip"
+          }
+      },
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "string.quoted.single.paperclip"
+        },
+        {
+          "match": "[^'\"]+",
+          "name": "string.quoted.single.paperclip"
+        }
+      ],
+      "endCaptures": {
+          "0": {
+              "name": "string.quoted.single.paperclip"
+          }
+      }
+    },
+    "sreserved": {
+      "match": "\\s*(true|false|null|undefined)\\s*",
+      "name": "constant.language.paperclip"
+    },
+    "sreference": {
+      "match": "\\b(\\w+)(\\.\\w+)*\\b",
+      "name": "variable.other.paperclip"
+    },
+    "smodifier": {
+      "begin": "\\|\\s*\\w+\\(",
+      "end": "\\)",
+      "beginCaptures": {
+        "0": {
+          "name": "storage.modifier.paperclip"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#sexpressions"
+        }
+      ],
+      "endCaptures": {
+        "0": {
+          "name": "storage.modifier.paperclip"
+        }
+      }
+    },
+    "snumber": {
+      "match": "\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)\\b",
+      "name": "constant.numeric.paperclip"
+    }
+  },
+  "patterns": [
+    {
+      "include": "#xexpressions"
+    }
+  ],
+  "uuid": "e289723a-1c1e-4d87-98f6-dae5efd97e91"
+}

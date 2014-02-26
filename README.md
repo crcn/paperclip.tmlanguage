@@ -1,4 +1,1 @@
-paperclip.tmlanguage
-====================
-
-Sublime Text 2 &amp; 3 template highlighting for paperclip
+Copy `paperclip.tmLanguage` to Sublime Text 3/Packages/Paperclip directory and restart Sublime Text 3.
