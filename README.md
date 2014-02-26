@@ -1,4 +1,4 @@
-Text highlighting for paperclip templates
+### highlighting for paperclip templates
 
 ![Screenshot](https://f.cloud.github.com/assets/757408/2266642/2a3b8d94-9e9f-11e3-8721-2b721ac52e0c.png)
 
